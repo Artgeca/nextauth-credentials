@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  console.log(session);
+  console.log(session, status);
 
   const handleLogout = () => {
     signOut({ redirect: false });
@@ -27,6 +27,9 @@ const Dashboard = () => {
             Log out
           </button>
         </>
+      )}
+      {status === 'authenticated' && (
+        <p>authenticated</p>
       )}
     </div>
   );
